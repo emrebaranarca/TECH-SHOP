@@ -1,0 +1,38 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css' integrity='sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS' crossorigin='anonymous')
+  title #{title}
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+  .container
+    a.navbar-brand(href='/') Shopping
+    ul.navbar-nav.mr-auto
+      li.nav-item
+        a(href='/',class=(path==="/"?"nav-link active":"nav-link")) Home
+      li.nav-item
+        a(href='/products',class=(path==="/products"?"nav-link active":"nav-link")) Products
+      li.nav-item
+        a(href='/admin/add-product',class=(path==="/admin/add-product"? "nav-link active":"nav-link")) Add Products
+      li.nav-item
+        a(href='/admin/products',class=(path==="/admin/products"? "nav-link active":"nav-link")) Admin Products
+      li.nav-item
+        a(href='/card',class=(path==="/card"? "nav-link active":"nav-link")) Card
+      li.nav-item
+        a(href='/orders',class=(path==="/orders"? "nav-link active":"nav-link")) orders
+    ul.navbar-nav.ml-auto
+      li.nav-item
+        a.nav-link(href='') Login
+      li.nav-item
+        a.nav-link(href='') Register
+.container(style='padding-top: 100px;')
+  .row
+    .col-lg-3
+      .list-group
+          each catego in category
+            a.list-group-item(href=`/category/${catego.id}`,class=catego.id===selectedCategory ? " active":"list-group-item") #{catego.name}
+    .col-lg-9
+      block content
