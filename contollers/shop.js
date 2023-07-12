@@ -40,16 +40,15 @@ exports.getProductFromCategory=(req,res,next)=>{
                 res.render("shop/products",{title:"Products",products:products,path:"/products",category:category,selectedCategory:id})
             }).catch(err=>console.log(err))     
         })
-        .catch(err=>console.log(err))
-    
+        .catch(err=>console.log(err))   
 
 }
-
 
 exports.getProductDetails=(req,res,next)=>{
     const category=Category.getAll()
     res.render("shop/detail",{title:"Details",path:"/details",category:category})
 }
+
 exports.getCard=(req,res,next)=>{
     Category.findAll().then(category=>{
         res.render("shop/card",{title:"Card",path:"/card",category:category})

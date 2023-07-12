@@ -43,7 +43,7 @@ Product.belongsTo(Category,{
   foreignKey:{allowNull:false}
 })
 const sequelize=require("./utility/database")
-sequelize.sync().then((result=>console.log(result))).catch(err=>console.log(err))
+sequelize.sync({force:true}).then((result=>console.log(result))).catch(err=>console.log(err))
 
 
 
